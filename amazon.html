@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title>Amazon Project</Title>
+        <style>
+            body{
+                padding-bottom: 1000px;
+                background-color: white;
+                padding-top : 50px;
+                font-size: 14px;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                height: 500px;
+            }
+            .outer-box {
+                padding-left: 20px;
+            }
+            .flex-box {
+                padding-top: 40px;
+                padding-bottom: 25px;
+                padding-left: 25px;
+                padding-right: 25px;
+                border-right: 1px solid rgb(231, 231, 231);
+                border-bottom: 1px solid rgb(231, 231, 231);
+                display: flex;
+                flex-direction: column;
+            }
+            .image-div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 180px;
+                margin-bottom: 20px;
+            }
+            .image {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .outer-box{
+                border-radius: 10px;
+                border-color: black;
+            }
+            .item-status {
+                margin-bottom : 10px;
+            }
+            .name {
+                height: 40px;
+                margin-bottom: 5px;
+            }
+            .rating
+            .total-rating
+            .price
+            .drop-box {
+                margin-bottom : 5px;
+            }
+            .cart-button .cart-button-div {
+                width: 100%;
+                padding: 8px;
+                border-radius: 50px;
+            }
+            .bar {
+                background-color: rgb(18 23 31);
+                color: white;
+                padding-left: 15px;
+                padding-right: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+            }
+            .title-div .input-div .order-cart-div{
+                align-self: center;
+            }
+            .middle-section{
+                flex: .5;
+                max-width: 850px;
+                margin-left: 10px;
+                margin-right: 10px;
+                display: flex;
+            }
+            .input-box{
+                flex: 1;
+                width: 0;
+                font-size: 16px;
+                height: 30px;
+                padding-left: 15px;
+                border: none;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            .order-cart-div{
+                font-size: 12px;
+                display: flex;
+                justify-content: end;
+            }
+            .return-orders{
+                color : white;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+            .order-cart-div1{
+                display: flex;
+                position: relative;
+                text-align: center;
+                flex-direction: row;
+                text-decoration: none;
+            }
+            .cart-number{
+                top : 0px;
+                left : 20px;
+                position: absolute;
+                color: white;
+                font-weight: bold;
+                font-size: 12px;
+            }
+            .cart-span{
+                color : white;
+                text-decoration: none;
+                font-size: 15px;
+                flex : 1;
+                margin-left: 5px;
+                align-self: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bar">
+            <div class="title-div">
+                <a href="http://127.0.0.1:5500/amazon.html">
+                    <img style="width: 70px;" src="images/amazon-logo-white.png">
+                </a>
+            </div>
+            <div class="middle-section">
+                <input class="input-box" placeholder="Search" data-testid="search-input" id="id-input-box" type="text">
+                <button class="input-button">Search</button>
+            </div>
+            <div class="order-cart-div">
+                <a class="return-orders" href="">
+                    <span style="display: block;">Return</span>
+                    <span style="display: block;">& Orders</span>
+                </a>
+                <a class="order-cart-div1" href="">
+                    <img style="width: 40px;" src="images\\cart-icon.png">
+                    <div class="cart-number">0</div>
+                    <div class="cart-span">Cart</div>
+                </a>
+            </div>
+        </div>
+        
+        <div class="grid"></div>
+        <script>
+            const itemArray = [
+                {
+                    image : "images\\athletic-cotton-socks-6-pairs.jpg",
+                    name : "Black and Gray Athletic Cotton",
+                    rating : 5.5,
+                    totalRating : 80,
+                    price : 1090
+                },
+                {
+                    image : "images\\intermediate-composite-basketball.jpg",
+                    name : "Intermediate Size BasketBall",
+                    rating : 4,
+                    totalRating : 127,
+                    price : 2095
+                },
+                {
+                    image : "images\\adults-plain-cotton-tshirt-2-pack-teal.jpg",
+                    name : "Adults Plain Cotton T-Shirt - 2 Pack",
+                    rating : 5.5,
+                    totalRating : 56,
+                    price : 799
+                },
+                {
+                    image : "images\\black-2-slot-toaster.jpg",
+                    name : "2 Slot Toaster - Black",
+                    rating : 6,
+                    totalRating : 2197,
+                    price : 1899
+                },
+                {
+                    image : "images\\6-piece-white-dinner-plate-set.jpg",
+                    name : "6 Piece White Dinner Plate Set",
+                    rating : 5.5,
+                    totalRating : 37,
+                    price : 2067
+                },
+                {
+                    image : "images\\6-piece-non-stick-baking-set.webp",
+                    name : "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
+                    rating : 5.5,
+                    totalRating : 175,
+                    price : 3499
+                },
+                {
+                    image : "images\\plain-hooded-fleece-sweatshirt-yellow.jpg",
+                    name : "Plain Hooded Fleece Sweatshirt",
+                    rating : 5.5,
+                    totalRating : 317,
+                    price : 24.00
+                },
+                {
+                    image : "images\\luxury-tower-set-6-piece.jpg",
+                    name : "Luxury Towel Set - Graphite Gray",
+                    rating : 5.5,
+                    totalRating : 144,
+                    price : 3599
+                },
+                {
+                    image : "images\\liquid-laundry-detergent-plain.jpg",
+                    name : "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
+                    rating : 5.5,
+                    totalRating : 305,
+                    price : 2899
+                },
+                {
+                    image : "images\\knit-athletic-sneakers-gray.jpg",
+                    name : "Waterproof Knit Athletic Sneakers - Gray",
+                    rating : 5.5,
+                    totalRating : 89,
+                    price : 3390
+                },
+                {
+                    image : "images\\women-chiffon-beachwear-coverup-black.jpg",
+                    name : "Women's Chiffon Beachwear Cover Up - Black",
+                    rating : 5.5,
+                    totalRating : 235,
+                    price : 2070
+                },
+                {
+                    image : "images\\round-sunglasses-black.jpg",
+                    name : "Round Sunglasses",
+                    rating : 5.5,
+                    totalRating : 30,
+                    price : 1560
+                }
+            ];
+
+            const gridDiv = document.querySelector('.grid');
+
+            let htmlData = '';
+            itemArray.forEach(function(value, index){
+                let tempString = `
+                <div class="flex-box">
+                    <div class="image-div">
+                        <img class="image" src="${value.image}">
+                    </div>
+                    <div class="data-div">
+                        <div class="name">
+                            ${value.name}
+                        </div>
+                        <div class="rating">
+                            ${value.rating}
+                        </div>
+                        <div class="total-ratings">
+                            ${value.totalRating}
+                        </div>
+                        <div style="font-weight : bold;" class="price">
+                            $${(value.price/100).toFixed(2)}
+                        </div>
+                        <div class="drop-box">
+                            <select>
+                                <option value="items1">1</option>
+                                <option value="items2">2</option>
+                                <option value="items3">3</option>
+                                <option value="items4">4</option>
+                            </select>
+                        </div>
+                        <div class="item-status">
+                        </div>
+                        <div class="cart-button-div">
+                            <button class="cart-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                `;
+
+            htmlData += tempString;
+            });
+            gridDiv.innerHTML = htmlData;
+        </script>
+    </body>
+</html>

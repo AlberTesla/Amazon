@@ -1,4 +1,4 @@
-import {cart} from '../scripts/cart.js';
+import {addToCart, updateCartQuantity} from '../scripts/cart.js';
 import {itemArray} from '../scripts/products.js';
 
 const gridDiv = document.querySelector('.grid');
@@ -49,28 +49,7 @@ addtoCartButtons.forEach(function(value, index){
     value.addEventListener('click', function(event){
         const productId = value.dataset.productId
         //check if value exists in array
-        let matchedItem;
-        cart.forEach(function(object){
-            if (object.productId === productId){
-                matchedItem = object;
-                return;
-            }
-        });
-
-        if (matchedItem){
-            matchedItem.quantity++;
-        }
-        else{
-            cart.push({productId : productId, quantity : 1});
-        }
-
-        let totalQuanity = 0;
-        cart.forEach(function(value){
-            totalQuanity += value.quantity;
-        })
-
-        const quantityElement = document.querySelector('.cart-number');
-        quantityElement.innerHTML = totalQuanity;
-        console.log(cart);
+        addToCart(productId);
+        updateCartQuantity();
     });
 });

@@ -319,6 +319,14 @@
                     else{
                         cart.push({productId : productId, quantity : 1});
                     }
+
+                    let totalQuanity = 0;
+                    cart.forEach(function(value){
+                        totalQuanity += value.quantity;
+                    })
+
+                    const quantityElement = document.querySelector('.cart-number');
+                    quantityElement.innerHTML = totalQuanity;
                     console.log(cart);
                 });
             });

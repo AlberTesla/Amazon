@@ -15,6 +15,7 @@ export function addToCart(productId){
     else{
         cart.push({productId : productId, quantity : 1});
     }
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 export function updateCartQuantity(){

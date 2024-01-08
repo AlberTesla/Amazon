@@ -63,7 +63,7 @@ body{
 }
 .item-content-detail{
     display: grid;
-    grid-template-columns : 110px 200px 170px;
+    grid-template-columns : 105px 202px 206px;
     height: 150px;
 }
 .image-logo{
@@ -78,7 +78,7 @@ body{
 }
 .item-content-div{
     display: grid;
-    grid-template-rows: 30px 30px 30px;
+    grid-template-rows: 35px 30px 30px;
 }
 .number-input{
     width: 40px;
@@ -98,5 +98,34 @@ body{
 }
 .item-price{
     padding-top : 0;
-    margin-top : 10px;
+    margin-top : 7px;
+}
+.radio-button{
+    display: inline;
+    height: 10px;
+    width: 10px;
+}
+.radio-div{
+    display : grid;
+    grid-template-columns: 15% 80%;
+    height : 125px;
+    margin-top : 5px;
+}
+.radio-left-div{
+    display : grid;
+    grid-template-rows: 33% 33% 33%;
+    height : 125px;
+}
+.para-div-default,
+.para-div{
+    margin : 0px;
+    margin-bottom : 2px;
+    font-size: 15px;
+}
+.para-div{
+    margin-top : 4px;
+}
+.para-div-default{
+    font-size: 14px;
+    color : gray;
 }

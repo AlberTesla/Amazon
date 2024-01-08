@@ -1,10 +1,18 @@
-import {addToCart, updateCartQuantity} from '../scripts/cart.js';
+import {cart, addToCart} from '../scripts/cart.js';
 import {itemArray} from '../scripts/products.js';
 
 const gridDiv = document.querySelector('.grid');
+const cartNumber = document.querySelector('.cart-number');
+
+let number = 0;
+cart.forEach(function(item){
+    number += item.quantity;
+});
+
+cartNumber.innerHTML = number;
 
 let htmlData = '';
-itemArray.forEach(function(value, index){
+itemArray.forEach(function(value){
     let tempString = `
     <div class="flex-box">
         <div class="image-div">
@@ -39,17 +47,14 @@ itemArray.forEach(function(value, index){
         </div>
     </div>
     `;
-
-htmlData += tempString;
+    htmlData += tempString;
 });
+
 gridDiv.innerHTML = htmlData;
 
 const addtoCartButtons = document.querySelectorAll('.cart-button');
-addtoCartButtons.forEach(function(value, index){
-    value.addEventListener('click', function(event){
-        const productId = value.dataset.productId
-        //check if value exists in array
-        addToCart(productId);
-        updateCartQuantity();
+addtoCartButtons.forEach(function(value){
+    value.addEventListener('click', function(){
+        addToCart(value.dataset.productId);
     });
 });

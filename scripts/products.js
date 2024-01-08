@@ -53,7 +53,7 @@ export const itemArray = [
         name : "Plain Hooded Fleece Sweatshirt",
         rating : 5.5,
         totalRating : 317,
-        price : 24.00
+        price : 2400
     },
     {   
         id : "cdef",
@@ -88,7 +88,7 @@ export const itemArray = [
         price : 2070
     },
     {
-        id : "uvwx",
+        id : "stuv",
         image : "images\\round-sunglasses-black.jpg",
         name : "Round Sunglasses",
         rating : 5.5,

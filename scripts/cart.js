@@ -16,7 +16,7 @@ export function addToCart(productId){
         matchedItem.quantity++;
     }
     else{
-        cart.push({productId : productId, quantity : 1});
+        cart.push({productId : productId, quantity : 1, dayOption : 1});
     }
     console.log(cart);
     updateCartQuantity();
@@ -24,6 +24,9 @@ export function addToCart(productId){
 }
 
 export function saveToStorage(){
+    if (localStorage.getItem('cart')){
+        localStorage.removeItem('cart');
+    }
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 

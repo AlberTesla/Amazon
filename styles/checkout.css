@@ -124,6 +124,8 @@ body{
 }
 .para-div{
     margin-top : 4px;
+    color : green;
+    font-weight: bold;
 }
 .para-div-default{
     font-size: 14px;
